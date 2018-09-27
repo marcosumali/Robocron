@@ -7,7 +7,7 @@ var roboCron = new cron.CronJob({
     onTick: async function() {
       console.log(`Executing Robocron at ${new Date(Date.now())}`)
 
-      await axios.get('http://localhost:5000/robo/homepagelike')
+      await axios.get('http://35.240.159.231/robo/homepagelike')
         .then(result => {
             console.log('Robocron Successful:', result.message)
         })
@@ -15,7 +15,7 @@ var roboCron = new cron.CronJob({
             console.log('Error Robocron Hompagelike', err)
         })
 
-      await axios.get('http://localhost:5000/robo/activitylike')
+      await axios.get('http://35.240.159.231/robo/activitylike')
         .then(result => {
             console.log('Robocron Successful:', result.message)
         })
@@ -23,7 +23,7 @@ var roboCron = new cron.CronJob({
             console.log('Error Robocron Activitilike', err)
         })
 
-      await axios.get('http://localhost:5000/robo/discoverylike')
+      await axios.get('http://35.240.159.231/robo/discoverylike')
         .then(result => {
             console.log('Robocron Successful:', result.message)
         })
@@ -31,7 +31,7 @@ var roboCron = new cron.CronJob({
             console.log('Error Robocron Discoverylike', err)
         })
       
-      await axios.get('http://localhost:5000/robo/hashtaglike')
+      await axios.get('http://35.240.159.231/robo/hashtaglike')
         .then(result => {
             console.log('Robocron Successful:', result.message)
         })
