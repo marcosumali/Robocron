@@ -180,7 +180,7 @@ module.exports = {
   async hashtagLike (req, res, next) {
     console.log('Executing Hashtaglike')
     // // Variable declaration - obtaining data from csv
-    let hashtagsData = fs.readFileSync(path.join(__dirname, './hashtags.csv'), 'utf8').trim().split('\r\n')
+    let hashtagsData = fs.readFileSync(path.join(__dirname, './hashtags.csv'), 'utf8').trim().split('\n')
     // console.log(hashtagsData)
     let hashtags = [];
     for (let i = 0; i < hashtagsData.length; i++) {
