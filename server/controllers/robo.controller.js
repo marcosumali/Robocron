@@ -368,14 +368,14 @@ module.exports = {
 
     // // Activity accounts extractions
     let hrefs = await scrapeInfiniteScrollItems(page, extractInstaElements, 10);
-    console.log(hrefs)
+    // console.log(hrefs)
     let slashIndex = hrefs.indexOf('/')
     let slicedhrefs = hrefs.slice(0, slashIndex)
 
     let uniquehrefs = slicedhrefs.filter(function(elem, index) {
       return slicedhrefs.indexOf(elem) == index;
     });
-    console.log(uniquehrefs)
+    // console.log(uniquehrefs)
 
     // // Liking post from each extracted activity accounts
     let score = 0
