@@ -7,7 +7,7 @@ var roboCron = new cron.CronJob({
     onTick: async function() {
       console.log(`Executing Robocron at ${new Date(Date.now())}`)
 
-      await axios.get('http://35.240.159.231/robo/homepagelike')
+      await axios.get('http://35.198.255.143/robo/homepagelike')
         .then(result => {
             console.log('Robocron Successful Hompagelike')
         })

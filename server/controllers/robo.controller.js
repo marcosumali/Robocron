@@ -69,9 +69,9 @@ async function instaLogin(page) {
   await page.keyboard.type(process.env.INSTAEMAIL, {delay: 100});
   await page.click(passwordSelector);
   await page.keyboard.type(process.env.INSTAPASSWORD, {delay: 100});
+  
+  await page.click('button[type="submit"]');
   console.log('Login on account', process.env.INSTAEMAIL)
-
-  await page.click('button');
 
   await page.waitForNavigation();
 }
