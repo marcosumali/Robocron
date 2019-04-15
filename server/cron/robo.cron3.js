@@ -7,7 +7,7 @@ var roboCron = new cron.CronJob({
     onTick: async function() {
       console.log(`Executing Robocron at ${new Date(Date.now())}`)
 
-      await axios.get('http://35.187.243.11/robo/homepagelike')
+      await axios.get('http://35.247.191.189/robo/homepagelike')
         .then(result => {
             console.log('Robocron Successful Hompagelike')
         })
@@ -22,4 +22,4 @@ var roboCron = new cron.CronJob({
   
   roboCron.start(); // job 1 started
    
-  console.log(`Robocron status`, roboCron.running); // job1 status true
+  console.log(`Robocron-03 status`, roboCron.running); // job1 status true

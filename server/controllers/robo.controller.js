@@ -290,7 +290,7 @@ module.exports = {
   async activityLike (req, res , next) {
     console.log('Executing Activitylike')
     const browser = await puppeteer.launch({
-      headless: false,
+      headless: true,
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
     });
     const page = await browser.newPage();
@@ -361,7 +361,7 @@ module.exports = {
   async discoveryLike (req, res , next) {
     console.log('Executing Discoverylike')
     const browser = await puppeteer.launch({
-      headless: false,
+      headless: true,
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
     });
     const page = await browser.newPage();
