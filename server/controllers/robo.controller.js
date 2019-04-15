@@ -3,6 +3,11 @@ const puppeteer = require('puppeteer');
 const fs = require('fs')
 const path = require("path")
 
+// Account declaration
+let instaEmail = process.env.INSTAEMAIL_0
+let instaPass = process.env.INSTAPASSWORD_0
+let pathFileCSV = './hashtags_worker.csv'
+
 // Variable declaration - Selector
 let heartSelector = '.coreSpriteHeartOpen'
 let likeSelector = 'button > span[aria-label="Like"]'
@@ -66,12 +71,12 @@ async function instaLogin(page) {
 
   await page.waitForSelector(emailSelector);
   await page.click(emailSelector);
-  await page.keyboard.type(process.env.INSTAEMAIL, {delay: 100});
+  await page.keyboard.type(instaEmail, {delay: 100});
   await page.click(passwordSelector);
-  await page.keyboard.type(process.env.INSTAPASSWORD, {delay: 100});
+  await page.keyboard.type(instaPass, {delay: 100});
   
   await page.click('button[type="submit"]');
-  console.log('Login on account', process.env.INSTAEMAIL)
+  console.log('Login on account', instaEmail)
 
   await page.waitForNavigation();
 }
@@ -180,7 +185,7 @@ module.exports = {
   async hashtagLike (req, res, next) {
     console.log('Executing Hashtaglike')
     // // Variable declaration - obtaining data from csv
-    let hashtagsData = fs.readFileSync(path.join(__dirname, './hashtags.csv'), 'utf8').trim().split('\n')
+    let hashtagsData = fs.readFileSync(path.join(__dirname, pathFileCSV), 'utf8').trim().split('\n')
     // console.log(hashtagsData)
     let hashtags = [];
     for (let i = 0; i < hashtagsData.length; i++) {
