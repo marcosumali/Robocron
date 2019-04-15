@@ -382,7 +382,7 @@ module.exports = {
     let uniquehrefs = slicedhrefs.filter(function(elem, index) {
       return slicedhrefs.indexOf(elem) == index;
     });
-    console.log(uniquehrefs)
+    // console.log(uniquehrefs)
 
     // // Liking post from each extracted activity accounts
     let score = 0
