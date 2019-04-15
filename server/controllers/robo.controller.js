@@ -256,6 +256,7 @@ module.exports = {
       await page.goto(`https://www.instagram.com${uniquehrefs[i]}`)
             
       // // Process for passing accounts that is private and no post (expected element check length is 1)
+      await page.waitForSelector('article > div > div > div')
       let getElement =  await page.$eval('article > div > div > div', div => div.className)
       // console.log('check element', getElement)
 
@@ -274,7 +275,7 @@ module.exports = {
       if (elementObtainedLength > 1) {
         await page.waitForSelector(firstImgSelectorAct);
         await page.click(firstImgSelectorAct)
-        let updateScore = await activityLikeInfiniteItems(page, 3)
+        let updateScore = await activityLikeInfiniteItems(page, 2)
         score += updateScore
         // console.log('check update score', updateScore, score)
       }
@@ -289,7 +290,7 @@ module.exports = {
   async activityLike (req, res , next) {
     console.log('Executing Activitylike')
     const browser = await puppeteer.launch({
-      headless: true,
+      headless: false,
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
     });
     const page = await browser.newPage();
@@ -326,6 +327,7 @@ module.exports = {
       // // await page.goto(`https://www.instagram.com/mellisalistiani/`) // private acc, expect length 1
       
       // // Process for passing accounts that is private and no post (expected element check length is 1)
+      await page.waitForSelector('article > div > div > div')
       let getElement =  await page.$eval('article > div > div > div', div => div.className)
       // console.log('check element', getElement)
 
@@ -344,7 +346,7 @@ module.exports = {
       if (elementObtainedLength > 1) {
         await page.waitForSelector(firstImgSelectorAct);
         await page.click(firstImgSelectorAct)
-        let updateScore = await activityLikeInfiniteItems(page, 3)
+        let updateScore = await activityLikeInfiniteItems(page, 2)
         score += updateScore
         // console.log('check update score', updateScore, score)
       }
@@ -359,7 +361,7 @@ module.exports = {
   async discoveryLike (req, res , next) {
     console.log('Executing Discoverylike')
     const browser = await puppeteer.launch({
-      headless: true,
+      headless: false,
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
     });
     const page = await browser.newPage();
@@ -372,7 +374,7 @@ module.exports = {
     await page.goto(targetWebsite);
 
     // // Activity accounts extractions
-    let hrefs = await scrapeInfiniteScrollItems(page, extractInstaElements, 10);
+    let hrefs = await scrapeInfiniteScrollItems(page, extractInstaElements, 5);
     // console.log(hrefs)
     let slashIndex = hrefs.indexOf('/')
     let slicedhrefs = hrefs.slice(0, slashIndex)
@@ -380,7 +382,7 @@ module.exports = {
     let uniquehrefs = slicedhrefs.filter(function(elem, index) {
       return slicedhrefs.indexOf(elem) == index;
     });
-    // console.log(uniquehrefs)
+    console.log(uniquehrefs)
 
     // // Liking post from each extracted activity accounts
     let score = 0
@@ -388,6 +390,7 @@ module.exports = {
       await page.goto(`https://www.instagram.com${uniquehrefs[i]}`)
    
       // // Process for passing accounts that is private and no post (expected element check length is 1)
+      await page.waitForSelector('article > div > div > div')
       let getElement =  await page.$eval('article > div > div > div', div => div.className)
       // console.log('check element', getElement)
 
@@ -406,7 +409,7 @@ module.exports = {
       if (elementObtainedLength > 1) {
         await page.waitForSelector(firstImgSelectorAct);
         await page.click(firstImgSelectorAct)
-        let updateScore = await activityLikeInfiniteItems(page, 3)
+        let updateScore = await activityLikeInfiniteItems(page, 2)
         score += updateScore
         // console.log('check update score', updateScore, score)
       }
@@ -418,6 +421,4 @@ module.exports = {
       message: `DicoveryLike checked ! Success likes: ${score}, Date: ` + new Date(Date.now())  
     })
   },
-  
-
 }
