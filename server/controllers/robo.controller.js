@@ -6,7 +6,7 @@ const path = require("path")
 // Account declaration
 let instaEmail = process.env.INSTAEMAIL_0
 let instaPass = process.env.INSTAPASSWORD_0
-let pathFileCSV = './hashtags_worker.csv'
+let pathFileCSV = './hashtags_location.csv'
 
 // Variable declaration - Selector
 let heartSelector = '.coreSpriteHeartOpen'
@@ -382,7 +382,7 @@ module.exports = {
     let uniquehrefs = slicedhrefs.filter(function(elem, index) {
       return slicedhrefs.indexOf(elem) == index;
     });
-    console.log(uniquehrefs)
+    // console.log(uniquehrefs)
 
     // // Liking post from each extracted activity accounts
     let score = 0
