@@ -1,5 +1,5 @@
 # Robocron
-This is a project to create a robot that functioning as an automation tools for liking post on instagram based on: targeted hastags, home page, explore page and follower post. Purpose of this program is to increase followers and engagement rate on Instagram.
+Robocron is a server-based automation tools robot that is designed for automatically liking post on instagram based on targeted hastags, user home page, user's activity page and user discovery page. Purpose of this program is to increase followers and engagement rate on Instagram.
 
 Tech stack: express REST-API framework, Cron job and Puppeteer.
 
