@@ -9,7 +9,7 @@ Env file with detail of your Instagram account.
 INSTAEMAIL_0=xxx.xxx@gmail.com
 INSTAPASSWORD_0=xxxxxx
 2. CSV Files
-
+You need to prepare CSV file with your targeted hashtags and number of automated likes per hashtag.
 
 # Server Routes
 PORT must be defined at 5000.
